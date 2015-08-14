@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      
+      <script type="text/javascript" src="../js/jquery-2.1.3.min.js"></script>
+      
+      
+      
+      <link type="text/css" href="../css/Reset.css" rel="stylesheet" >
+      <link type="text/css" href="../css/Style.css" rel="stylesheet" >
+      
+    
+  
+  </head>
+    <body>
+        <div id="MainContainer">
+            
+            <div id="CodeEditor"> <!-- CODE EDITOR -->
+                <textarea id="InputText" autofocus>programa lexico; { entrada i1; p := i1*2; salida i1 }.</textarea>
+                <div id="OutputCode"> </div>
+                <div id="ErrorMsg" style="display:none">Este es un Mensaje de Error que se despliega aqui</div>
+                     
+            </div>
+            
+            <div id="MenuContainer">
+                <a href="#" id="OpenTxt"><img src="../rez/abrir.png">Abrir Documento</a>
+                <a href="#" id="SaveTxt"><img src="../rez/exportar.png">Exportar Codigo</a>
+                <a id="Verify" href="#"><img src="../rez/Verificar.png">Verificar Codigo</a>
+                <a href="#" id="ShowTables"><img src="../rez/listas.png">IDs y Constantes</a>
+            </div> 
+            
+            <div id="Tables">
+                <table id="TableIDs">
+                    <thead><tr><th>ID</th><th>Identificador</th></tr></thead>
+                    
+                </table>
+                
+                <table id="TableCons">
+                    <thead><tr><th>Index</th><th>Constantes</th></tr></thead>
+                </table>
+                <a href="#" id="QuitTables">Regresar</a>
+            </div>
+            
+        </div>
+        <input style="display:none;" id="OpenDialog" type="file" accept=".txt" />
+        <input id="SaveDialog" type="file" nwsaveas="test.txt" />
+        
+        <! -- SCRIPTS -->
+        <script type="text/javascript" src="../js/Lexema.js"></script>
+        <script type="text/javascript" src="../js/Syntax.js"></script>
+        <script type="text/javascript" src="../js/Files.js"></script>
+        
+        <script type="text/javascript">
+            // Eventos para correr Decode() y CheckSyntax()           
+            $("#Verify").on("click", function(){
+                Decode();
+                CheckSyntax();
+                }
+            );
+            
+            $("#InputText").on("keyup", function(){
+                Decode();
+                CheckSyntax();
+                }
+            );
+            
+            // Evento para Mostrar Tablas
+            $("#ShowTables").on("click",function(){
+                $("#Tables").animate({right: 0},500);
+                
+            });
+            
+            // Evento para Cerrar Tablas
+            $("#QuitTables").on("click",function(){
+                $("#Tables").animate({right: "-20%"},500);
+            });
+            
+            // Eventos para trabajar con archivos
+            $("#OpenTxt").on("click",function(){OpenFile()});
+            $("#SaveTxt").on("click",function(){writeToFile()});
+        
+        </script>
+        
+        
+    </body>
+</html>

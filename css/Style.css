@@ -1,0 +1,129 @@
+/*
+html->body->MainContainer->CodeEditor->InputText->OutputCode->ErrorMsg
+                                     |-> MenuContainer ->a
+                                     |->#Tables ->#TableIDs
+                                               |->#TableCons
+                                               |->#QuitTables
+
+*/
+html,body{margin: 0; padding: 0; overflow: hidden}
+html, body, #MainContainer, #MenuContainer{height: 100%; font: normal 14px 'Arial','Tahoma', sans-serif}
+
+b{font-weight: bold}
+r{color: crimson}
+
+/*  #MainContainer   */
+#MainContainer{
+    background-color:#5C5757;
+}
+
+    #CodeEditor, #MenuContainer {display:inline-block}
+
+    #CodeEditor{
+        height: 94%;
+        padding: 1%;
+        width: 75%;
+        position: absolute;
+    }
+            #InputText{
+                padding: 3%;
+                height: 40%;
+                width: 90%;
+                font-family: "Tahoma", sans-serif;
+                font-size: 18px;
+                overflow-y: scroll;
+                border-radius: 3px;
+            }
+            #OutputCode{
+                padding: 3%;
+                height: 25%;
+                width: 90%;
+                font-family: "Tahoma", sans-serif;
+                font-size: 18px;
+                overflow-y: scroll;
+                background-color: #EDEDED;
+            }
+            #ErrorMsg{
+                padding: 1%;
+                position: relative;
+                bottom: 0px;
+                width: 94%;
+                text-align: center;
+                color: #FFF;
+            }
+            .error{background-color: coral}
+            .info{background-color: deepskyblue}
+            .good{background-color:chartreuse}
+    #MenuContainer{
+        width: 20%;
+        background-color: #282828;
+        position: absolute;
+        right: 0;
+    }
+        #MenuContainer a{
+            display: block;
+            padding: 10% 1% 10% 10%;
+            border-bottom: solid 1px #333;
+            color: #CCC;
+            text-decoration: none;
+        }
+            #MenuContainer a:hover{
+                color:#FFF;
+                background-color: #111;
+            }
+        #MenuContainer a img{
+            width: 25px;
+            height: 25px;
+            margin-right: 3%;
+        }
+            
+    #Tables{
+        width: 20%;
+        background-color:darkturquoise;
+        position: absolute;
+        height: 100%;
+        right: -20%;
+    }
+        #TableIDs, #TableCons{
+            color:#FFF;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 3%;
+            text-align: center;
+            
+        }
+        
+             #TableIDs td, #TableCons td, #TableIDs th, #TableCons th{
+                 padding: 3%;
+                 margin: 3%;
+             }
+             #TableIDs th, #TableCons th {background-color: #31AFDE;border: solid 1px #CCC;}
+        #Tables #QuitTables{
+            padding: 5%;
+            border-radius: 10px;
+            background-color: dodgerblue;
+            display: block;
+            position: relative;
+            width: 50%;
+            top: 15%;
+            left: 10%;
+            font-weight: bold;
+            text-align: center;
+        }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
